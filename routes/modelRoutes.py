@@ -8,6 +8,7 @@ from schemas.modelschema import AccountSchema
 account_ns = Namespace('accounts', description="Account APIs")
 
 account_schema = AccountSchema(many=True)
+create_account_schema = AccountSchema()
 
 account = account_ns.model('Account', {
     'account_number': fields.Integer('Account #'),
@@ -27,4 +28,4 @@ class AccountList(Resource):
         newAccount = Account(account_number=account_json['account_number'], lName=account_json['lName'], client_id=account_json['client_id'])
         db.session.add(newAccount)
         db.session.commit()
-        return account_schema.dump(newAccount), 201
+        return create_account_schema.dump(newAccount), 201
