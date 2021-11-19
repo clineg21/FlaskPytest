@@ -1,7 +1,7 @@
 import json
-from .factories import AccountFactory
-from models.models import Account
-from configs.database import db
+# from .factories import AccountFactory
+from Flask_Pytest.models.models import Account
+from Flask_Pytest.configs.database import db
 
 def test_user_can_retrieve_empty_list_account(client, db):
     response = client.get('/api/v1/accounts')

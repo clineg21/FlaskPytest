@@ -1,9 +1,9 @@
 from flask_restx import Resource, fields, Namespace
 from flask import request, jsonify
-from configs.database import db
+from Flask_Pytest.configs.database import db
 
-from models.models import Account
-from schemas.modelschema import AccountSchema
+from Flask_Pytest.models.models import Account
+from Flask_Pytest.schemas.modelschema import AccountSchema
 
 account_ns = Namespace('accounts', description="Account APIs")
 

@@ -1,6 +1,6 @@
 import pytest
 from app import create_app
-from configs.database import db as _db
+from Flask_Pytest.configs.database import db as _db
 
 
 @pytest.fixture

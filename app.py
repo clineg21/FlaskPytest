@@ -2,17 +2,18 @@ import os
 
 from flask import Flask, Blueprint
 from flask_restx import Api
-from configs.database import db
-from configs.ma import ma
-from configs.config import SQLALCHEMYTRACKMODIFICATIONS
+from Flask_Pytest.configs.database import db
+from Flask_Pytest.configs.ma import ma
+from Flask_Pytest.configs.config import SQLALCHEMYTRACKMODIFICATIONS
 from decouple import config
-from routes.modelRoutes import account_ns, AccountList
-from instance.instanceconf import app_config
+from Flask_Pytest.routes.modelRoutes import account_ns, AccountList
+from Flask_Pytest.instance.instanceconf import app_config
 
 def create_app(config_name) -> Flask:
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_object(app_config[config_name])
-    app.config.from_pyfile('instanceconf.py')
+    # app.config.from_pyfile('DevelopmentConfig')
+    app.config.from_object('Flask_Pytest.instance.instanceconf')
     db.init_app(app)
     ma.init_app(app)
     blueprint = Blueprint('api', __name__, url_prefix='/api/v1/')

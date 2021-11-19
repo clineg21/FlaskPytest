@@ -1,4 +1,4 @@
-from configs.database import db
+from Flask_Pytest.configs.database import db
 
 class Account(db.Model):
     __tablename__ = 'account'
