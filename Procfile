@@ -1,1 +1,1 @@
-web: gunicorn python app.py
+web: gunicorn Flask_Pytest.wsgi
