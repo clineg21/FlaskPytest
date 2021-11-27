@@ -1,5 +1,5 @@
 import json
-# from .factories import AccountFactory
+from .factories import AccountFactory
 from Flask_Pytest.models.models import Account
 from Flask_Pytest.configs.database import db
 
