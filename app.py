@@ -35,4 +35,4 @@ if __name__ == '__main__':
     config_name = os.getenv('APP_SETTINGS')
     print(config_name)
     # create_app(config_name).run(port=5000, debug=True)
-    create_app(config_name).run(host='0.0.0.0', debug=True)
+    create_app(config_name).run(host='0.0.0.0', port=5000, debug=True)
